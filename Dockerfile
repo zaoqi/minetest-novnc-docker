@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:rolling
 
 ENV HOME /root
 ENV DEBIAN_FRONTEND noninteractive
@@ -9,7 +9,7 @@ ENV LANGUAGE en_US.UTF-8
 RUN dpkg --add-architecture i386
 RUN apt-get update && apt-get -y install xvfb x11vnc xdotool wget tar supervisor net-tools fluxbox
 # Application
-RUN apt-get -y install x11-apps
+RUN apt-get -y install minetest
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 ENV WINEPREFIX /root/prefix32
